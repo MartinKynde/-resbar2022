@@ -8,7 +8,8 @@ from matplotlib import style, pyplot as plt
 
 import tkinter as tk
 from tkinter import ttk
-
+from itertools import cycle
+from PIL import ImageTk, Image
 
 
 LARGE_FONT = ("Verdana", 12)
@@ -33,6 +34,8 @@ data5 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0]
 data6 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0]
 
 time = 60
+
+import matplotlib.image as mpimg
 
 def simple_interest(p, r, t):
     si=(p*r*t)/100
@@ -140,10 +143,7 @@ def animate(self):
     c1.plot(xs5, ys5, color="pink")
     c1.set_title("PhD & Employees")
 
-  #  img = mpimg.imread('børsbar.png')
-   # image.imshow(img)
-   # image.axis('off')
-   # image.grid('off')
+
 
 class Børsbar(tk.Tk):
 
@@ -160,7 +160,7 @@ class Børsbar(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage,  PageThree):
+        for F in (StartPage,  PageThree, Disaster1, Disaster2, Disaster3):
             frame = F(container, self)
 
             self.frames[F] = frame
@@ -175,7 +175,6 @@ class Børsbar(tk.Tk):
 
 
 class StartPage(tk.Frame):
-
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text="Børsbar 2022", font=LARGE_FONT)
@@ -215,7 +214,9 @@ class PageThree(tk.Frame):
 
      #   button2 = ttk.Button(self, text="Restart", command=clear_text())
      #   button2.pack()
-
+        button2 = ttk.Button(self, text="Disaster",
+                             command=lambda: controller.show_frame(Disaster1))
+        button2.pack()
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.draw()
@@ -225,6 +226,77 @@ class PageThree(tk.Frame):
         toolbar.update()
         canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
+class Disaster1(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button2 = ttk.Button(self, text="Back",
+                             command=lambda: controller.show_frame(PageThree))
+        button2.pack()
+
+        img = mpimg.imread('Volcano.png')
+        imageplot = Figure(figsize=(8, 3), dpi=200)
+        g = imageplot.add_subplot(111)
+        g.imshow(img)
+        g.axis("off")
+        g.grid("off")
+        imageplot.suptitle("Volcanic Eruption... Hot stuff all over... Brandbil for 8kr")
+
+        canvas = FigureCanvasTkAgg(imageplot, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+
+class Disaster2(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button2 = ttk.Button(self, text="Back",
+                             command=lambda: controller.show_frame(PageThree))
+        button2.pack()
+
+        img = mpimg.imread('Earthquake.png')
+        imageplot = Figure(figsize=(8, 3), dpi=200)
+        g = imageplot.add_subplot(111)
+        g.imshow(img)
+        g.axis("off")
+        g.grid("off")
+        imageplot.suptitle("Earthquake... Move ")
+
+        canvas = FigureCanvasTkAgg(imageplot, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+
+class Disaster3(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button2 = ttk.Button(self, text="Back",
+                             command=lambda: controller.show_frame(PageThree))
+        button2.pack()
+
+        img = mpimg.imread('Volcano.png')
+        imageplot = Figure(figsize=(8, 3), dpi=200)
+        g = imageplot.add_subplot(111)
+        g.imshow(img)
+        g.axis("off")
+        g.grid("off")
+        imageplot.suptitle("Volcanic Eruption... Hot stuff all over... Brandbil for 8kr")
+
+        canvas = FigureCanvasTkAgg(imageplot, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 app = Børsbar()
 ani = animation.FuncAnimation(f, animate, interval=1000)
