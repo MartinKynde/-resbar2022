@@ -211,20 +211,32 @@ class PageThree(tk.Frame):
         button1 = ttk.Button(self, text="Back",
                              command=lambda: controller.show_frame(StartPage))
         button1.pack()
+        button1.place(x=100, y=15)
 
-     #   button2 = ttk.Button(self, text="Restart", command=clear_text())
+        #   button2 = ttk.Button(self, text="Restart", command=clear_text())
      #   button2.pack()
         button2 = ttk.Button(self, text="Disaster",
                              command=lambda: controller.show_frame(Disaster1))
         button2.pack()
+        button2.place(x=200, y=15)
+
+        button3 = ttk.Button(self, text="More disaster",
+                             command=lambda: controller.show_frame(Disaster2))
+        button3.pack()
+        button3.place(x=300, y=15)
+
+        button4 = ttk.Button(self, text="Most disaster",
+                             command=lambda: controller.show_frame(Disaster3))
+        button4.pack()
+        button4.place(x=400, y=15)
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.draw()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
-        toolbar = NavigationToolbar2Tk(canvas, self)
-        toolbar.update()
-        canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+       # toolbar = NavigationToolbar2Tk(canvas, self)
+       # toolbar.update()
+       # canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 class Disaster1(tk.Frame):
 
@@ -237,6 +249,7 @@ class Disaster1(tk.Frame):
         button2 = ttk.Button(self, text="Back",
                              command=lambda: controller.show_frame(PageThree))
         button2.pack()
+        button2.place(x=100, y=15)
 
         img = mpimg.imread('Volcano.png')
         imageplot = Figure(figsize=(8, 3), dpi=200)
@@ -255,12 +268,13 @@ class Disaster2(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label = tk.Label(self, text="More disaster!!!", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
         button2 = ttk.Button(self, text="Back",
                              command=lambda: controller.show_frame(PageThree))
         button2.pack()
+        button2.place(x=100, y=15)
 
         img = mpimg.imread('Earthquake.png')
         imageplot = Figure(figsize=(8, 3), dpi=200)
@@ -268,7 +282,7 @@ class Disaster2(tk.Frame):
         g.imshow(img)
         g.axis("off")
         g.grid("off")
-        imageplot.suptitle("Earthquake... Move ")
+        imageplot.suptitle("Earthquake... Move your feet... Best moves on the floor will be rewarded!")
 
         canvas = FigureCanvasTkAgg(imageplot, self)
         canvas.draw()
@@ -279,12 +293,13 @@ class Disaster3(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label = tk.Label(self, text="Most disaster!!!", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
         button2 = ttk.Button(self, text="Back",
                              command=lambda: controller.show_frame(PageThree))
         button2.pack()
+        button2.place(x=100, y=15)
 
         img = mpimg.imread('Volcano.png')
         imageplot = Figure(figsize=(8, 3), dpi=200)
