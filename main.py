@@ -661,7 +661,6 @@ class PageThree(tk.Frame):
         label = tk.Label(self) #text="Aktier", font=LARGE_FONT
         label.pack(pady=10, padx=10)
         Update()
-        PageThree.after(self,60000, Update())
 
         button1 = tk.Button(self, text="Back",
                              command=lambda: controller.show_frame(StartPage))
@@ -719,8 +718,6 @@ class PageThree(tk.Frame):
         button6yearned22 = tk.Button(self, text="Update", command=Update)
         button6yearned22.pack()
         button6yearned22.place(x=1700, y=10)
-
-        self.after(60000, Update)
 
 
         button7 = tk.Button(self, text="Inflation", bg='red',command=lambda:[Inflation(), Update()])
@@ -828,8 +825,6 @@ class Disaster3(tk.Frame):
         canvas = FigureCanvasTkAgg(imageplot, self)
         canvas.draw()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-
-
 
 
 app = Børsbar()
