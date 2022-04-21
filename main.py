@@ -519,35 +519,37 @@ def Inflation():
 
 def Deflation():
     global firsttemp, firsttemp2, firsttemp3, firsttemp4, firsttemp5, firsttemp6
+
+
     if firsttemp >= 0:
-        firsttemp += firsttemp * 0.01
+        firsttemp += firsttemp * 0.015
     else:
-        firsttemp -= firsttemp * 0.01
+        firsttemp -= firsttemp * 0.015
 
     if firsttemp2 >= 0:
-        firsttemp2 += firsttemp2 * 0.01
+        firsttemp2 += firsttemp2 * 0.015
     else:
-        firsttemp2 -= firsttemp2 * 0.01
+        firsttemp2 -= firsttemp2 * 0.015
 
     if firsttemp3 >= 0:
-        firsttemp3 += firsttemp3 * 0.01
+        firsttemp3 += firsttemp3 * 0.015
     else:
-        firsttemp3 -= firsttemp3 * 0.01
+        firsttemp3 -= firsttemp3 * 0.015
 
     if firsttemp4 >= 0:
-        firsttemp4 += firsttemp4 * 0.01
+        firsttemp4 += firsttemp4 * 0.015
     else:
-        firsttemp4 -= firsttemp4 * 0.01
+        firsttemp4 -= firsttemp4 * 0.015
 
     if firsttemp5 >= 0:
-        firsttemp5 += firsttemp5 * 0.01
+        firsttemp5 += firsttemp5 * 0.015
     else:
-        firsttemp5 -= firsttemp5 * 0.01
+        firsttemp5 -= firsttemp5 * 0.015
 
     if firsttemp6 >= 0:
-        firsttemp6 += firsttemp6 * 0.01
+        firsttemp6 += firsttemp6 * 0.015
     else:
-        firsttemp6 -= firsttemp6 * 0.01
+        firsttemp6 -= firsttemp6 * 0.015
 
     firstbeer = firsttemp
     firstbeer5 = firsttemp5
@@ -613,7 +615,7 @@ class Børsbar(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage,  PageThree, Disaster1, Disaster2, Disaster3):
+        for F in (StartPage,  PageThree, Disaster1, Disaster2, Disaster3, Disaster4, Disaster5):
             frame = F(container, self)
 
             self.frames[F] = frame
@@ -728,20 +730,30 @@ class PageThree(tk.Frame):
       #  button8.pack()
       #  button8.place(x=1600, y=10)
 
-        button2 = tk.Button(self, text="Disaster",
+        button2 = tk.Button(self, text="Event 1",
                              command=lambda: controller.show_frame(Disaster1))
         button2.pack()
         button2.place(x=200, y=15)
 
-        button3 = tk.Button(self, text="More disaster",
+        button3 = tk.Button(self, text="Event 2",
                              command=lambda: controller.show_frame(Disaster2))
         button3.pack()
         button3.place(x=300, y=15)
 
-        button4 = tk.Button(self, text="Most disaster",
+        button4 = tk.Button(self, text="Event 3",
                              command=lambda: controller.show_frame(Disaster3))
         button4.pack()
         button4.place(x=400, y=15)
+
+        button44 = tk.Button(self, text="Event 4",
+                            command=lambda: controller.show_frame(Disaster4))
+        button44.pack()
+        button44.place(x=500, y=15)
+
+        button444 = tk.Button(self, text="Event 5",
+                            command=lambda: controller.show_frame(Disaster5))
+        button444.pack()
+        button444.place(x=600, y=15)
 
         canvas = FigureCanvasTkAgg(f, self)
         canvas.draw()
@@ -770,7 +782,7 @@ class Disaster1(tk.Frame):
         g.imshow(img)
         g.axis("off")
         g.grid("off")
-        imageplot.suptitle("Volcanic Eruption... Hot stuff all over... Brandbil for 8kr")
+        imageplot.suptitle("Vulkanudbrud... It's getting hot in here... \n Brandbil giver dobbelt point")
 
         canvas = FigureCanvasTkAgg(imageplot, self)
         canvas.draw()
@@ -781,7 +793,7 @@ class Disaster2(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="More disaster!!!", font=LARGE_FONT)
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
         button2 = ttk.Button(self, text="Back",
@@ -789,13 +801,13 @@ class Disaster2(tk.Frame):
         button2.pack()
         button2.place(x=100, y=15)
 
-        img = mpimg.imread('Earthquake.png')
+        img = mpimg.imread('Earthquake.jpg')
         imageplot = Figure(figsize=(8, 3), dpi=200)
         g = imageplot.add_subplot(111)
         g.imshow(img)
         g.axis("off")
         g.grid("off")
-        imageplot.suptitle("Earthquake... Move your feet... Best moves on the floor will be rewarded!")
+        imageplot.suptitle("Jordskælv... Store ødelæggelser og aktiemarkedet lider... \n De kraftige rystelser gør Shakers (og pink) mere værd (1,5 point)")
 
         canvas = FigureCanvasTkAgg(imageplot, self)
         canvas.draw()
@@ -806,7 +818,7 @@ class Disaster3(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Most disaster!!!", font=LARGE_FONT)
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
         button2 = ttk.Button(self, text="Back",
@@ -814,18 +826,69 @@ class Disaster3(tk.Frame):
         button2.pack()
         button2.place(x=100, y=15)
 
-        img = mpimg.imread('Volcano.png')
+        img = mpimg.imread('Landslide.jpg')
         imageplot = Figure(figsize=(8, 3), dpi=200)
         g = imageplot.add_subplot(111)
         g.imshow(img)
         g.axis("off")
         g.grid("off")
-        imageplot.suptitle("Volcanic Eruption... Hot stuff all over... Brandbil for 8kr")
+        imageplot.suptitle("Jordskred... Endnu en nedgang for aktiemarkedet... \n Alt det overflødige jord gør Søren Munchs Jordprøver billigere (10Kr)")
 
         canvas = FigureCanvasTkAgg(imageplot, self)
         canvas.draw()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
+
+class Disaster4(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Noice!!!", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button2 = ttk.Button(self, text="Back",
+                             command=lambda: controller.show_frame(PageThree))
+        button2.pack()
+        button2.place(x=100, y=15)
+
+        img = mpimg.imread('Olie.jpg')
+        imageplot = Figure(figsize=(8, 3), dpi=200)
+        g = imageplot.add_subplot(111)
+        g.imshow(img)
+        g.axis("off")
+        g.grid("off")
+        imageplot.suptitle("Et kæmpe fund af Nordsøolie giver favorable tider for aktiemarkedet... \n Råolie er på tilbud - 3 stk. for 10kr")
+
+        canvas = FigureCanvasTkAgg(imageplot, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+
+
+class Disaster5(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+
+        label = tk.Label(self, text="Disaster!!!", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button2 = ttk.Button(self, text="Back",
+                             command=lambda: controller.show_frame(PageThree))
+        button2.pack()
+        button2.place(x=100, y=15)
+
+        img = mpimg.imread('Global.jpg')
+        imageplot = Figure(figsize=(8, 3), dpi=200)
+        g = imageplot.add_subplot(111)
+        g.imshow(img)
+        g.axis("off")
+        g.grid("off")
+        imageplot.suptitle("Global opvarmning er på det højeste nogensinde... \n Isbjørne er i høj kurs og giver dobbelt point!")
+
+        canvas = FigureCanvasTkAgg(imageplot, self)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 app = Børsbar()
 ani = animation.FuncAnimation(f, animate, frames=t, interval=1000)
@@ -833,7 +896,7 @@ ani = animation.FuncAnimation(f, animate, frames=t, interval=1000)
 import schedule
 
 schedule.every(5).minutes.do(Deflation)
-schedule.every(5).minutes.do(Update)
+schedule.every(1).minutes.do(Update)
 
 while True:
     schedule.run_pending()
