@@ -441,34 +441,34 @@ def Inflation():
     date = content[slice(11, 16)]
 
     if firsttemp >=0:
-        firsttemp -= firsttemp*0.01
+        firsttemp -= firsttemp*0.2
     else:
-        firsttemp += firsttemp * 0.01
+        firsttemp += firsttemp * 0.2
 
     if firsttemp2 >=0:
-        firsttemp2 -= firsttemp2*0.01
+        firsttemp2 -= firsttemp2*0.2
     else:
-        firsttemp2 += firsttemp2 * 0.01
+        firsttemp2 += firsttemp2 * 0.2
 
     if firsttemp3 >=0:
-        firsttemp3 -= firsttemp3*0.01
+        firsttemp3 -= firsttemp3*0.2
     else:
-        firsttemp3 += firsttemp3 * 0.01
+        firsttemp3 += firsttemp3 * 0.2
 
     if firsttemp4 >=0:
-        firsttemp4 -= firsttemp4*0.01
+        firsttemp4 -= firsttemp4*0.2
     else:
-        firsttemp4 += firsttemp4 * 0.01
+        firsttemp4 += firsttemp4 * 0.2
 
     if firsttemp5 >=0:
-        firsttemp5 -= firsttemp5*0.01
+        firsttemp5 -= firsttemp5*0.2
     else:
-        firsttemp5 += firsttemp5 * 0.01
+        firsttemp5 += firsttemp5 * 0.2
 
     if firsttemp6 >=0:
-        firsttemp6 -= firsttemp6*0.01
+        firsttemp6 -= firsttemp6*0.2
     else:
-        firsttemp6 += firsttemp6 * 0.01
+        firsttemp6 += firsttemp6 * 0.2
 
 
     firstbeer = firsttemp
@@ -667,51 +667,51 @@ class PageThree(tk.Frame):
         button1.pack()
         button1.place(x=100, y=15)
 
-        buttonfirstyear = tk.Button(self,text="First Year", bg='green', command=lambda:[NedtaelOel(), Update()])
+        buttonfirstyear = tk.Button(self,text="First Year", bg='green', command=lambda:[NedtaelOel()]) #, Update()]
         buttonfirstyear.pack()
         buttonfirstyear.place(x= 800, y=0)
 
-        buttonfirstyearned = tk.Button(self, text="First Year", bg='red', command=lambda:[OptaelOel(), Update()])
+        buttonfirstyearned = tk.Button(self, text="First Year", bg='red', command=lambda:[OptaelOel()]) #
         buttonfirstyearned.pack()
         buttonfirstyearned.place(x=800, y=20)
 
-        button2year = tk.Button(self, text="Second Year", bg='green', command=lambda:[NedtaelOel2(), Update()])
+        button2year = tk.Button(self, text="Second Year", bg='green', command=lambda:[NedtaelOel2()])
         button2year.pack()
         button2year.place(x=900, y=0)
 
-        button2yearned = tk.Button(self, text="Second Year", bg='red', command=lambda:[OptaelOel2(), Update()])
+        button2yearned = tk.Button(self, text="Second Year", bg='red', command=lambda:[OptaelOel2()])
         button2yearned.pack()
         button2yearned.place(x=900, y=20)
 
-        button3year = tk.Button(self, text="Third Year",bg='green', command=lambda:[NedtaelOel3(), Update()])
+        button3year = tk.Button(self, text="Third Year",bg='green', command=lambda:[NedtaelOel3()])
         button3year.pack()
         button3year.place(x=1000, y=0)
 
-        button3yearned = tk.Button(self, text="Third Year", bg='red', command=lambda:[OptaelOel3(), Update()])
+        button3yearned = tk.Button(self, text="Third Year", bg='red', command=lambda:[OptaelOel3()])
         button3yearned.pack()
         button3yearned.place(x=1000, y=20)
 
-        button4year = tk.Button(self, text="Fourth Year",bg='green', command=lambda:[NedtaelOel4(), Update()])
+        button4year = tk.Button(self, text="Fourth Year",bg='green', command=lambda:[NedtaelOel4()])
         button4year.pack()
         button4year.place(x=1100, y=0)
 
-        button4yearned = tk.Button(self, text="Fourth Year", bg='red', command=lambda:[OptaelOel4(), Update()])
+        button4yearned = tk.Button(self, text="Fourth Year", bg='red', command=lambda:[OptaelOel4()])
         button4yearned.pack()
         button4yearned.place(x=1100, y=20)
 
-        button5year = tk.Button(self, text="Fifth Year",bg='green', command=lambda:[NedtaelOel5(), Update()])
+        button5year = tk.Button(self, text="Fifth Year",bg='green', command=lambda:[NedtaelOel5()])
         button5year.pack()
         button5year.place(x=1200, y=0)
 
-        button5yearned = tk.Button(self, text="Fifth Year", bg='red', command=lambda:[OptaelOel5(), Update()])
+        button5yearned = tk.Button(self, text="Fifth Year", bg='red', command=lambda:[OptaelOel5()])
         button5yearned.pack()
         button5yearned.place(x=1200, y=20)
 
-        button6year = tk.Button(self, text="PhD+Employees", bg='green',command=lambda:[NedtaelOel6(), Update()])
+        button6year = tk.Button(self, text="PhD+Employees", bg='green',command=lambda:[NedtaelOel6()])
         button6year.pack()
         button6year.place(x=1300, y=0)
 
-        button6yearned = tk.Button(self, text="PhD+Employees", bg='red', command=lambda:[OptaelOel6(), Update()])
+        button6yearned = tk.Button(self, text="PhD+Employees", bg='red', command=lambda:[OptaelOel6()])
         button6yearned.pack()
         button6yearned.place(x=1300, y=20)
 
@@ -724,9 +724,9 @@ class PageThree(tk.Frame):
         button7.pack()
         button7.place(x=1800, y=10)
 
-        button8 = tk.Button(self, text="Stonks!", bg='green', command=lambda:[Deflation(), Update()])
-        button8.pack()
-        button8.place(x=1600, y=10)
+      #  button8 = tk.Button(self, text="Stonks!", bg='green', command=lambda:[Deflation(), Update()])
+      #  button8.pack()
+      #  button8.place(x=1600, y=10)
 
         button2 = tk.Button(self, text="Disaster",
                              command=lambda: controller.show_frame(Disaster1))
@@ -829,4 +829,14 @@ class Disaster3(tk.Frame):
 
 app = Børsbar()
 ani = animation.FuncAnimation(f, animate, frames=t, interval=1000)
-app.mainloop()
+
+import schedule
+
+schedule.every(5).minutes.do(Deflation)
+schedule.every(5).minutes.do(Update)
+
+while True:
+    schedule.run_pending()
+    app.update_idletasks()
+    app.update()
+#app.mainloop()
