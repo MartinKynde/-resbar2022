@@ -1,7 +1,7 @@
 import matplotlib
 import numpy
 from numpy import ndarray
-
+import re
 matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
@@ -50,164 +50,174 @@ def simple_interest(p, r, t):
 p = 1000
 t = 5
 # animation function
-def animate(self):
+
+
+def animate(r):
+    a.clear()
+
     firstyear = open('FirstYear.txt', 'r').read()
     lines = firstyear.split('\n')
     xs = []
     ys = []
+    h = 0
+    m = 0
+    y = 0
     for line in lines:
         if len(line) > 1:
-            x, y = line.split(',')
+            ##y5 = float(y5)
+            h, m, y = re.split(':|, ', line)
+
             y = float(y)
-            y = simple_interest(p, 1*y, 1)
-          #  xs.append(float(x))
-            xs.append(x)
+            h = float(h)
+            m = float(m)
+            y = simple_interest(p, 1 * y, 1)
+            xs.append(datetime.datetime(2022, 4, 22, int(h), int(m)))
             ys.append(float(y))
-    a.clear()
-    a.plot(xs, ys, color="blue", linewidth=2, marker='o')
 
-
+    if int(h)==0 & int(m)==0 & int(y)==0:
+        pass
+    else:
+        a.plot(xs,ys, marker='o', color='#d53e4f', lw=3, alpha=0.7)
 
     #  a.set_title("First Year")
-
 
     secondyear = open('SecondYear.txt', 'r').read()
     lines1 = secondyear.split('\n')
     xs1 = []
     ys1 = []
+    h1 = 0
+    m1 = 0
+    y1 = 0
     for line in lines1:
         if len(line) > 1:
-            x1, y1 = line.split(',')
-            y1 = float(y1)
-            y1 = simple_interest(p, 1 * y1, 1)
-            xs1.append(x1)
-            ys1.append(float(y1))
-   # a.clear()
-    a.plot(xs1, ys1, color="green", linewidth=2, marker='o')
-   # a.set_title("Second Year")
+            ##y5 = float(y5)
+            h1, m1, y1 = re.split(':|, ', line)
 
+            y1 = float(y1)
+            h1 = float(h1)
+            m1 = float(m1)
+            y1 = simple_interest(p, 1 * y1, 1)
+            xs1.append(datetime.datetime(2022, 4, 22, int(h1), int(m1)))
+            ys1.append(float(y1))
+
+    #    a.clear(
+    if int(h1)==0 & int(m1)==0 & int(y1)==0:
+        pass
+    else:
+        a.plot(xs1, ys1, marker='+', color='#fc8d59', lw=3, alpha=0.7)
+    # a.set_title("Second Year")
 
     thirdyear = open('ThirdYear.txt', 'r').read()
     lines2 = thirdyear.split('\n')
     xs2 = []
     ys2 = []
+    h2 = 0
+    m2 = 0
+    y2 = 0
     for line in lines2:
         if len(line) > 1:
-            x2, y2 = line.split(',')
-            y2 = float(y2)
-            y2 = simple_interest(p, 1 * y2, 1)
-            xs2.append(x2)
-            ys2.append(float(y2))
-  #  a.clear()
-    a.plot(xs2, ys2, color="purple", linewidth=2, marker='o')
-    #c.set_title("Third Year")
+            ##y5 = float(y5)
+            h2, m2, y2 = re.split(':|, ', line)
 
+            y2 = float(y2)
+            h2 = float(h2)
+            m2 = float(m2)
+            y2 = simple_interest(p, 1 * y2, 1)
+            xs2.append(datetime.datetime(2022, 4, 22, int(h2), int(m2)))
+            ys2.append(float(y2))
+
+    #    a.clear(
+    if int(h2)==0 & int(m2)==0 & int(y2)==0:
+        pass
+    else:
+        a.plot(xs2, ys2, marker='v', color='#fee08b', lw=3, alpha=0.7)
+    # c.set_title("Third Year")
 
     fourthyear = open('FourthYear.txt', 'r').read()
     lines3 = fourthyear.split('\n')
     xs3 = []
     ys3 = []
+    h3 = 0
+    m3 = 0
+    y3 = 0
     for line in lines3:
         if len(line) > 1:
-            x3, y3 = line.split(',')
-            y3 = float(y3)
-            y3 = simple_interest(p, 1 * y3, 1)
-            xs3.append(x3)
-            ys3.append(float(y3))
-   # a.clear()
-    a.plot(xs3, ys3,  color="orange", linewidth=2, marker='o')
-    #a1.set_title("Fourth Year")
+            ##y5 = float(y5)
+            h3, m3, y3 = re.split(':|, ', line)
 
+            y3 = float(y3)
+            h3 = float(h3)
+            m3 = float(m3)
+            y3 = simple_interest(p, 1 * y3, 1)
+            xs3.append(datetime.datetime(2022, 4, 22, int(h3), int(m3)))
+            ys3.append(float(y3))
+
+    #    a.clear(
+    if int(h3)==0 & int(m3)==0 & int(y3)==0:
+        pass
+    else:
+        a.plot(xs3, ys3, marker='D', color='#8b008b', lw=3, alpha=0.7)
+    # a1.set_title("Fourth Year")
 
     fifthyear = open('FifthYear.txt', 'r').read()
     lines4 = fifthyear.split('\n')
     xs4 = []
     ys4 = []
+    h4 = 0
+    m4 = 0
+    y4 = 0
     for line in lines4:
         if len(line) > 1:
-            x4, y4 = line.split(',')
+            ##y5 = float(y5)
+            h4, m4, y4 = re.split(':|, ', line)
+
             y4 = float(y4)
+            h4 = float(h4)
+            m4 = float(m4)
             y4 = simple_interest(p, 1 * y4, 1)
-            xs4.append(x4)
+            xs4.append(datetime.datetime(2022, 4, 22, int(h4), int(m4)))
             ys4.append(float(y4))
-   # a.clear()
-    a.plot(xs4, ys4, linewidth=2, marker='o')
-   # b1.set_title("Fifth Year")
+
+    #    a.clear(
+    if int(h4)==0 & int(m4)==0 & int(y4)==0:
+        pass
+    else:
+        a.plot(xs4, ys4, marker='h', color='#006400', lw=3, alpha=0.7)
+    # b1.set_title("Fifth Year")
+
 
     phdansatte = open('PhdAnsatte.txt', 'r').read()
     lines5 = phdansatte.split('\n')
     xs5 = []
     ys5 = []
+    h5 = 0
+    m5 = 0
+    y5 = 0
     for line in lines5:
         if len(line) > 1:
-            x5, y5 = line.split(',')
+           ##y5 = float(y5)
+            h5, m5, y5 = re.split(':|, ', line)
             y5 = float(y5)
+            h5 = float(h5)
+            m5 = float(m5)
             y5 = simple_interest(p, 1 * y5, 1)
-            xs5.append(x5)
+            xs5.append(datetime.datetime(2022, 4, 22, int(h5), int(m5)))
             ys5.append(float(y5))
-#    a.clear(
-    a.plot(xs5, ys5, color="pink", linewidth=2, marker='o')
+
+    if int(h5)==0 & int(m5)==0 & int(y5)==0:
+        pass
+    else:
+        a.plot(xs5, ys5, marker='*', color='#3288bd', lw=3, alpha=0.7)
+    import matplotlib.dates as mdates
+    import matplotlib.ticker
+  #  myFmt = mdates.DateFormatter('%d')
+  #  a.xaxis.set_major_formatter(myFmt)
+    xfmt = mdates.DateFormatter("%H:%M")
+    a.xaxis.set_major_formatter(xfmt)
     a.legend(["First Year", "Second Year", "Third Year", "Fourth Year", "Fifth Year",
               "PhD + Employees"], loc= 'lower center', bbox_to_anchor=(0.5, -0.1), ncol=6, prop={'size': 16})
     #c1.set_title("PhD & Employees")
 
-
-
-class Børsbar(tk.Tk):
-
-    def __init__(self, *args, **kwargs):
-        tk.Tk.__init__(self, *args, **kwargs)
-
-#        tk.Tk.iconbitmap(self, default="clienticon.ico")
-        tk.Tk.wm_title(self, "Børsbar 2022")
-        tk.Tk.attributes(self, "-fullscreen",True)
-        container = tk.Frame(self)
-        container.pack(side="top", fill="both", expand=True)
-        container.grid_rowconfigure(0, weight=1)
-        container.grid_columnconfigure(0, weight=1)
-
-        self.frames = {}
-
-        for F in (StartPage,  PageThree, Disaster1, Disaster2, Disaster3):
-            frame = F(container, self)
-
-            self.frames[F] = frame
-
-            frame.grid(row=0, column=0, sticky="nsew")
-
-        self.show_frame(StartPage)
-
-    def show_frame(self, cont):
-        frame = self.frames[cont]
-        frame.tkraise()
-
-
-class StartPage(tk.Frame):
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="Børsbar 2022", font=LARGE_FONT)
-        label.pack(pady=10, padx=10)
-
-
-        button3 = ttk.Button(self, text="Aktieportefølje",
-                             command=lambda: controller.show_frame(PageThree))
-        button3.pack()
-
-        def clear_text():
-            file = open("FirstYear.txt", "w")
-            file.close()
-            file = open("SecondYear.txt", "w")
-            file.close()
-            file = open("ThirdYear.txt", "w")
-            file.close()
-            file = open("FourthYear.txt", "w")
-            file.close()
-            file = open("FifthYear.txt", "w")
-            file.close()
-            file = open("PhdAnsatte.txt", "w")
-            file.close()
-import sys
-import time
 
 firstbeer = []
 firstbeer2 = []
@@ -355,9 +365,9 @@ def NedtaelOel6():
     content = str(datetime.datetime.now())
     content3 = content[slice(11, 16)]
     content2 = str(firstbeer6)
-    content2 = content3 + ", " + content2
+    content4 = content3 + ", " + content2
     textfile = open("PhdAnsatte.txt", "a")
-    textfile.write(str(content2) + "\n")
+    textfile.write(str(content4) + "\n")
     textfile.close()
 
 def OptaelOel6():
@@ -372,68 +382,355 @@ def OptaelOel6():
     textfile.write(str(content2) + "\n")
     textfile.close()
 
+
+def Update():
+    global firsttemp, firsttemp2, firsttemp3, firsttemp4, firsttemp5, firsttemp6
+    content = str(datetime.datetime.now())
+    date = content[slice(11, 16)]
+
+
+    firstbeer = firsttemp
+    firstbeer5 = firsttemp5
+    firstbeer2 = firsttemp2
+    firstbeer3 = firsttemp3
+    firstbeer4 = firsttemp4
+    firstbeer6 = firsttemp6
+
+    update1 = str(firstbeer)
+    update2 = str(firstbeer2)
+    update3 = str(firstbeer3)
+    update4 = str(firstbeer4)
+    update5 = str(firstbeer5)
+    update6 = str(firstbeer6)
+
+    content1 = date + ", " + update1
+    content2 = date + ", " + update2
+    content3 = date + ", " + update3
+    content4 = date + ", " + update4
+    content5 = date + ", " + update5
+    content6 = date + ", " + update6
+
+    textfile = open("FirstYear.txt", "a")
+    textfile.write(str(content1) + "\n")
+    textfile.close()
+
+    textfile = open("SecondYear.txt", "a")
+    textfile.write(str(content2) + "\n")
+    textfile.close()
+
+    textfile = open("ThirdYear.txt", "a")
+    textfile.write(str(content3) + "\n")
+    textfile.close()
+
+    textfile = open("FourthYear.txt", "a")
+    textfile.write(str(content4) + "\n")
+    textfile.close()
+
+    textfile = open("FifthYear.txt", "a")
+    textfile.write(str(content5) + "\n")
+    textfile.close()
+    textfile = open("PhdAnsatte.txt", "a")
+    textfile.write(str(content6) + "\n")
+    textfile.close()
+
+
+def Inflation():
+    global firsttemp, firsttemp2, firsttemp3, firsttemp4, firsttemp5, firsttemp6
+
+    content = str(datetime.datetime.now())
+    date = content[slice(11, 16)]
+
+    if firsttemp >=0:
+        firsttemp -= firsttemp*0.01
+    else:
+        firsttemp += firsttemp * 0.01
+
+    if firsttemp2 >=0:
+        firsttemp2 -= firsttemp2*0.01
+    else:
+        firsttemp2 += firsttemp2 * 0.01
+
+    if firsttemp3 >=0:
+        firsttemp3 -= firsttemp3*0.01
+    else:
+        firsttemp3 += firsttemp3 * 0.01
+
+    if firsttemp4 >=0:
+        firsttemp4 -= firsttemp4*0.01
+    else:
+        firsttemp4 += firsttemp4 * 0.01
+
+    if firsttemp5 >=0:
+        firsttemp5 -= firsttemp5*0.01
+    else:
+        firsttemp5 += firsttemp5 * 0.01
+
+    if firsttemp6 >=0:
+        firsttemp6 -= firsttemp6*0.01
+    else:
+        firsttemp6 += firsttemp6 * 0.01
+
+
+    firstbeer = firsttemp
+    firstbeer5 = firsttemp5
+    firstbeer2 = firsttemp2
+    firstbeer3 = firsttemp3
+    firstbeer4 = firsttemp4
+    firstbeer6 = firsttemp6
+
+
+    update1 = str(firstbeer)
+    update2 = str(firstbeer2)
+    update3 = str(firstbeer3)
+    update4 = str(firstbeer4)
+    update5 = str(firstbeer5)
+    update6 = str(firstbeer6)
+
+    content1 = date + ", " + update1
+    content2 = date + ", " + update2
+    content3 = date + ", " + update3
+    content4 = date + ", " + update4
+    content5 = date + ", " + update5
+    content6 = date + ", " + update6
+
+    textfile = open("FirstYear.txt", "a")
+    textfile.write(str(content1) + "\n")
+    textfile.close()
+
+    textfile = open("SecondYear.txt", "a")
+    textfile.write(str(content2) + "\n")
+    textfile.close()
+
+    textfile = open("ThirdYear.txt", "a")
+    textfile.write(str(content3) + "\n")
+    textfile.close()
+
+    textfile = open("FourthYear.txt", "a")
+    textfile.write(str(content4) + "\n")
+    textfile.close()
+
+    textfile = open("FifthYear.txt", "a")
+    textfile.write(str(content5) + "\n")
+    textfile.close()
+    textfile = open("PhdAnsatte.txt", "a")
+    textfile.write(str(content6) + "\n")
+    textfile.close()
+
+
+def Deflation():
+    global firsttemp, firsttemp2, firsttemp3, firsttemp4, firsttemp5, firsttemp6
+    if firsttemp >= 0:
+        firsttemp += firsttemp * 0.01
+    else:
+        firsttemp -= firsttemp * 0.01
+
+    if firsttemp2 >= 0:
+        firsttemp2 += firsttemp2 * 0.01
+    else:
+        firsttemp2 -= firsttemp2 * 0.01
+
+    if firsttemp3 >= 0:
+        firsttemp3 += firsttemp3 * 0.01
+    else:
+        firsttemp3 -= firsttemp3 * 0.01
+
+    if firsttemp4 >= 0:
+        firsttemp4 += firsttemp4 * 0.01
+    else:
+        firsttemp4 -= firsttemp4 * 0.01
+
+    if firsttemp5 >= 0:
+        firsttemp5 += firsttemp5 * 0.01
+    else:
+        firsttemp5 -= firsttemp5 * 0.01
+
+    if firsttemp6 >= 0:
+        firsttemp6 += firsttemp6 * 0.01
+    else:
+        firsttemp6 -= firsttemp6 * 0.01
+
+    firstbeer = firsttemp
+    firstbeer5 = firsttemp5
+    firstbeer2 = firsttemp2
+    firstbeer3 = firsttemp3
+    firstbeer4 = firsttemp4
+    firstbeer6 = firsttemp6
+
+    content = str(datetime.datetime.now())
+    date = content[slice(11, 16)]
+
+    update1 = str(firstbeer)
+    update2 = str(firstbeer2)
+    update3 = str(firstbeer3)
+    update4 = str(firstbeer4)
+    update5 = str(firstbeer5)
+    update6 = str(firstbeer6)
+
+    content1 = date + ", " + update1
+    content2 = date + ", " + update2
+    content3 = date + ", " + update3
+    content4 = date + ", " + update4
+    content5 = date + ", " + update5
+    content6 = date + ", " + update6
+
+    textfile = open("FirstYear.txt", "a")
+    textfile.write(str(content1) + "\n")
+    textfile.close()
+
+    textfile = open("SecondYear.txt", "a")
+    textfile.write(str(content2) + "\n")
+    textfile.close()
+
+    textfile = open("ThirdYear.txt", "a")
+    textfile.write(str(content3) + "\n")
+    textfile.close()
+
+    textfile = open("FourthYear.txt", "a")
+    textfile.write(str(content4) + "\n")
+    textfile.close()
+
+    textfile = open("FifthYear.txt", "a")
+    textfile.write(str(content5) + "\n")
+    textfile.close()
+    textfile = open("PhdAnsatte.txt", "a")
+    textfile.write(str(content6) + "\n")
+    textfile.close()
+
+
+
+class Børsbar(tk.Tk):
+
+    def __init__(self, *args, **kwargs):
+        tk.Tk.__init__(self, *args, **kwargs)
+
+#        tk.Tk.iconbitmap(self, default="clienticon.ico")
+        tk.Tk.wm_title(self, "Børsbar 2022")
+        tk.Tk.attributes(self, "-fullscreen",True)
+        container = tk.Frame(self)
+        container.pack(side="top", fill="both", expand=True)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
+
+        self.frames = {}
+
+        for F in (StartPage,  PageThree, Disaster1, Disaster2, Disaster3):
+            frame = F(container, self)
+
+            self.frames[F] = frame
+
+            frame.grid(row=0, column=0, sticky="nsew")
+
+        self.show_frame(StartPage)
+
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()
+
+
+class StartPage(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="Børsbar 2022", font=LARGE_FONT)
+        label.pack(pady=10, padx=10)
+
+
+        button3 = ttk.Button(self, text="Aktieportefølje",
+                             command=lambda: controller.show_frame(PageThree))
+        button3.pack()
+
+        def clear_text():
+            file = open("FirstYear.txt", "w")
+            file.close()
+            file = open("SecondYear.txt", "w")
+            file.close()
+            file = open("ThirdYear.txt", "w")
+            file.close()
+            file = open("FourthYear.txt", "w")
+            file.close()
+            file = open("FifthYear.txt", "w")
+            file.close()
+            file = open("PhdAnsatte.txt", "w")
+            file.close()
+import sys
+import time
+
 class PageThree(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = tk.Label(self) #text="Aktier", font=LARGE_FONT
         label.pack(pady=10, padx=10)
+        Update()
+        PageThree.after(self,60000, Update())
 
         button1 = tk.Button(self, text="Back",
                              command=lambda: controller.show_frame(StartPage))
         button1.pack()
         button1.place(x=100, y=15)
 
-        buttonfirstyear = tk.Button(self,text="First Year", bg='green', command=NedtaelOel)
+        buttonfirstyear = tk.Button(self,text="First Year", bg='green', command=lambda:[NedtaelOel(), Update()])
         buttonfirstyear.pack()
         buttonfirstyear.place(x= 800, y=0)
 
-        buttonfirstyearned = tk.Button(self, text="First Year", bg='red', command=OptaelOel)
+        buttonfirstyearned = tk.Button(self, text="First Year", bg='red', command=lambda:[OptaelOel(), Update()])
         buttonfirstyearned.pack()
         buttonfirstyearned.place(x=800, y=20)
 
-        button2year = tk.Button(self, text="Second Year", bg='green', command=NedtaelOel2)
+        button2year = tk.Button(self, text="Second Year", bg='green', command=lambda:[NedtaelOel2(), Update()])
         button2year.pack()
         button2year.place(x=900, y=0)
 
-        button2yearned = tk.Button(self, text="Second Year", bg='red', command=OptaelOel2)
+        button2yearned = tk.Button(self, text="Second Year", bg='red', command=lambda:[OptaelOel2(), Update()])
         button2yearned.pack()
         button2yearned.place(x=900, y=20)
 
-        button3year = tk.Button(self, text="Third Year",bg='green', command=NedtaelOel3)
+        button3year = tk.Button(self, text="Third Year",bg='green', command=lambda:[NedtaelOel3(), Update()])
         button3year.pack()
         button3year.place(x=1000, y=0)
 
-        button3yearned = tk.Button(self, text="Third Year", bg='red', command=OptaelOel3)
+        button3yearned = tk.Button(self, text="Third Year", bg='red', command=lambda:[OptaelOel3(), Update()])
         button3yearned.pack()
         button3yearned.place(x=1000, y=20)
 
-        button4year = tk.Button(self, text="Fourth Year",bg='green', command=NedtaelOel4)
+        button4year = tk.Button(self, text="Fourth Year",bg='green', command=lambda:[NedtaelOel4(), Update()])
         button4year.pack()
         button4year.place(x=1100, y=0)
 
-        button4yearned = tk.Button(self, text="Fourth Year", bg='red', command=OptaelOel4)
+        button4yearned = tk.Button(self, text="Fourth Year", bg='red', command=lambda:[OptaelOel4(), Update()])
         button4yearned.pack()
         button4yearned.place(x=1100, y=20)
 
-        button5year = tk.Button(self, text="Fifth Year",bg='green', command=NedtaelOel5)
+        button5year = tk.Button(self, text="Fifth Year",bg='green', command=lambda:[NedtaelOel5(), Update()])
         button5year.pack()
         button5year.place(x=1200, y=0)
 
-        button5yearned = tk.Button(self, text="Fifth Year", bg='red', command=OptaelOel5)
+        button5yearned = tk.Button(self, text="Fifth Year", bg='red', command=lambda:[OptaelOel5(), Update()])
         button5yearned.pack()
         button5yearned.place(x=1200, y=20)
 
-        button6year = tk.Button(self, text="PhD+Employees", bg='green',command=NedtaelOel6)
+        button6year = tk.Button(self, text="PhD+Employees", bg='green',command=lambda:[NedtaelOel6(), Update()])
         button6year.pack()
         button6year.place(x=1300, y=0)
 
-        button6yearned = tk.Button(self, text="PhD+Employees", bg='red', command=OptaelOel6)
+        button6yearned = tk.Button(self, text="PhD+Employees", bg='red', command=lambda:[OptaelOel6(), Update()])
         button6yearned.pack()
         button6yearned.place(x=1300, y=20)
 
-        #   button2 = ttk.Button(self, text="Restart", command=clear_text())
-     #   button2.pack()
+        button6yearned22 = tk.Button(self, text="Update", command=Update)
+        button6yearned22.pack()
+        button6yearned22.place(x=1700, y=10)
+
+        self.after(60000, Update)
+
+
+        button7 = tk.Button(self, text="Inflation", bg='red',command=lambda:[Inflation(), Update()])
+        button7.pack()
+        button7.place(x=1800, y=10)
+
+        button8 = tk.Button(self, text="Stonks!", bg='green', command=lambda:[Deflation(), Update()])
+        button8.pack()
+        button8.place(x=1600, y=10)
+
         button2 = tk.Button(self, text="Disaster",
                              command=lambda: controller.show_frame(Disaster1))
         button2.pack()
@@ -532,6 +829,9 @@ class Disaster3(tk.Frame):
         canvas.draw()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
+
+
+
 app = Børsbar()
-ani = animation.FuncAnimation(f, animate, interval=1000)
+ani = animation.FuncAnimation(f, animate, frames=t, interval=1000)
 app.mainloop()
